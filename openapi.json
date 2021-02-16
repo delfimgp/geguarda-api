@@ -919,6 +919,309 @@
         "operationId": "EstirpesController.find"
       }
     },
+    "/lista-concelhos/count": {
+      "get": {
+        "x-controller-name": "ListaConcelhosController",
+        "x-operation-name": "count",
+        "tags": [
+          "ListaConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListaConcelhos model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "ListaConcelhos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<ListaConcelhos>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListaConcelhosController.count"
+      }
+    },
+    "/lista-concelhos/{id}": {
+      "put": {
+        "x-controller-name": "ListaConcelhosController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ListaConcelhosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListaConcelhos PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListaConcelhos"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListaConcelhosController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ListaConcelhosController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ListaConcelhosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListaConcelhos PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListaConcelhosPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ListaConcelhosController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ListaConcelhosController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ListaConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListaConcelhos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListaConcelhosWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListaConcelhos.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListaConcelhosController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ListaConcelhosController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ListaConcelhosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ListaConcelhos DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ListaConcelhosController.deleteById"
+      }
+    },
+    "/lista-concelhos": {
+      "post": {
+        "x-controller-name": "ListaConcelhosController",
+        "x-operation-name": "create",
+        "tags": [
+          "ListaConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListaConcelhos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListaConcelhos"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewListaConcelhos"
+              }
+            }
+          }
+        },
+        "operationId": "ListaConcelhosController.create"
+      },
+      "patch": {
+        "x-controller-name": "ListaConcelhosController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ListaConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "ListaConcelhos PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "ListaConcelhos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<ListaConcelhos>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListaConcelhosPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ListaConcelhosController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ListaConcelhosController",
+        "x-operation-name": "find",
+        "tags": [
+          "ListaConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of ListaConcelhos model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListaConcelhosWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListaConcelhos.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ListaConcelhosController.find"
+      }
+    },
     "/ping": {
       "get": {
         "x-controller-name": "PingController",
@@ -1579,13 +1882,17 @@
             "type": "string",
             "format": "date-time"
           },
-          "estirpe": {
+          "variante": {
             "type": "string"
+          },
+          "valor": {
+            "type": "number"
           }
         },
         "required": [
           "data",
-          "estirpe"
+          "variante",
+          "valor"
         ],
         "additionalProperties": false
       },
@@ -1598,13 +1905,17 @@
             "type": "string",
             "format": "date-time"
           },
-          "estirpe": {
+          "variante": {
             "type": "string"
+          },
+          "valor": {
+            "type": "number"
           }
         },
         "required": [
           "data",
-          "estirpe"
+          "variante",
+          "valor"
         ],
         "additionalProperties": false,
         "x-typescript-type": "Omit<Estirpes, 'id'>"
@@ -1621,13 +1932,17 @@
             "type": "string",
             "format": "date-time"
           },
-          "estirpe": {
+          "variante": {
             "type": "string"
+          },
+          "valor": {
+            "type": "number"
           }
         },
         "required": [
           "data",
-          "estirpe"
+          "variante",
+          "valor"
         ],
         "additionalProperties": false,
         "x-typescript-type": "EstirpesWithRelations"
@@ -1644,12 +1959,79 @@
             "type": "string",
             "format": "date-time"
           },
-          "estirpe": {
+          "variante": {
             "type": "string"
+          },
+          "valor": {
+            "type": "number"
           }
         },
         "additionalProperties": false,
         "x-typescript-type": "Partial<Estirpes>"
+      },
+      "ListaConcelhos": {
+        "title": "ListaConcelhos",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "concelho": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "concelho"
+        ],
+        "additionalProperties": false
+      },
+      "NewListaConcelhos": {
+        "title": "NewListaConcelhos",
+        "type": "object",
+        "description": "(tsType: Omit<ListaConcelhos, 'id'>, schemaOptions: { title: 'NewListaConcelhos', exclude: [ 'id' ] })",
+        "properties": {
+          "concelho": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "concelho"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<ListaConcelhos, 'id'>"
+      },
+      "ListaConcelhosWithRelations": {
+        "title": "ListaConcelhosWithRelations",
+        "type": "object",
+        "description": "(tsType: ListaConcelhosWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "concelho": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "concelho"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ListaConcelhosWithRelations"
+      },
+      "ListaConcelhosPartial": {
+        "title": "ListaConcelhosPartial",
+        "type": "object",
+        "description": "(tsType: Partial<ListaConcelhos>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "concelho": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<ListaConcelhos>"
       },
       "Vacinas": {
         "title": "Vacinas",
@@ -1927,8 +2309,7 @@
                     "internados",
                     "uci",
                     "domicilio"
-                  ],
-                  "example": "id"
+                  ]
                 },
                 "uniqueItems": true
               }
@@ -2143,7 +2524,10 @@
                   "data": {
                     "type": "boolean"
                   },
-                  "estirpe": {
+                  "variante": {
+                    "type": "boolean"
+                  },
+                  "valor": {
                     "type": "boolean"
                   }
                 },
@@ -2156,7 +2540,8 @@
                   "enum": [
                     "id",
                     "data",
-                    "estirpe"
+                    "variante",
+                    "valor"
                   ],
                   "example": "id"
                 },
@@ -2215,7 +2600,10 @@
                   "data": {
                     "type": "boolean"
                   },
-                  "estirpe": {
+                  "variante": {
+                    "type": "boolean"
+                  },
+                  "valor": {
                     "type": "boolean"
                   }
                 },
@@ -2228,7 +2616,8 @@
                   "enum": [
                     "id",
                     "data",
-                    "estirpe"
+                    "variante",
+                    "valor"
                   ],
                   "example": "id"
                 },
@@ -2240,6 +2629,137 @@
         },
         "additionalProperties": false,
         "x-typescript-type": "@loopback/repository#Filter<Estirpes>"
+      },
+      "ListaConcelhos.Filter": {
+        "type": "object",
+        "title": "ListaConcelhos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "concelho": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "concelho"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "ListaConcelhos.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<ListaConcelhos>"
+      },
+      "ListaConcelhos.Filter1": {
+        "type": "object",
+        "title": "ListaConcelhos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "ListaConcelhos.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "concelho": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "concelho"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "ListaConcelhos.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<ListaConcelhos>"
       },
       "PingResponse": {
         "type": "object",
