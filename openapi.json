@@ -1,0 +1,2409 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "geguarda-api",
+    "version": "0.0.1",
+    "description": "testeLB",
+    "contact": {
+      "name": "Delfim Pereira",
+      "email": "delfimgp@hotmail.com"
+    }
+  },
+  "paths": {
+    "/casos/count": {
+      "get": {
+        "x-controller-name": "CasosController",
+        "x-operation-name": "count",
+        "tags": [
+          "CasosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casos model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Casos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Casos>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasosController.count"
+      }
+    },
+    "/casos/{id}": {
+      "put": {
+        "x-controller-name": "CasosController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "CasosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Casos PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Casos"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CasosController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "CasosController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "CasosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Casos PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CasosPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CasosController.updateById"
+      },
+      "get": {
+        "x-controller-name": "CasosController",
+        "x-operation-name": "findById",
+        "tags": [
+          "CasosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CasosWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Casos.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasosController.findById"
+      },
+      "delete": {
+        "x-controller-name": "CasosController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "CasosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Casos DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "CasosController.deleteById"
+      }
+    },
+    "/casos": {
+      "post": {
+        "x-controller-name": "CasosController",
+        "x-operation-name": "create",
+        "tags": [
+          "CasosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Casos"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCasos"
+              }
+            }
+          }
+        },
+        "operationId": "CasosController.create"
+      },
+      "patch": {
+        "x-controller-name": "CasosController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "CasosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casos PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Casos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Casos>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CasosPartial"
+              }
+            }
+          }
+        },
+        "operationId": "CasosController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "CasosController",
+        "x-operation-name": "find",
+        "tags": [
+          "CasosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Casos model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CasosWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Casos.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasosController.find"
+      }
+    },
+    "/concelhos/count": {
+      "get": {
+        "x-controller-name": "ConcelhosController",
+        "x-operation-name": "count",
+        "tags": [
+          "ConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Concelhos model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Concelhos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Concelhos>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ConcelhosController.count"
+      }
+    },
+    "/concelhos/{id}": {
+      "put": {
+        "x-controller-name": "ConcelhosController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ConcelhosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Concelhos PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Concelhos"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ConcelhosController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ConcelhosController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ConcelhosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Concelhos PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConcelhosPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ConcelhosController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ConcelhosController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Concelhos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConcelhosWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concelhos.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ConcelhosController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ConcelhosController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ConcelhosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Concelhos DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ConcelhosController.deleteById"
+      }
+    },
+    "/concelhos": {
+      "post": {
+        "x-controller-name": "ConcelhosController",
+        "x-operation-name": "create",
+        "tags": [
+          "ConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Concelhos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concelhos"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewConcelhos"
+              }
+            }
+          }
+        },
+        "operationId": "ConcelhosController.create"
+      },
+      "patch": {
+        "x-controller-name": "ConcelhosController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Concelhos PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Concelhos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Concelhos>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConcelhosPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ConcelhosController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ConcelhosController",
+        "x-operation-name": "find",
+        "tags": [
+          "ConcelhosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Concelhos model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConcelhosWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concelhos.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ConcelhosController.find"
+      }
+    },
+    "/estirpes/count": {
+      "get": {
+        "x-controller-name": "EstirpesController",
+        "x-operation-name": "count",
+        "tags": [
+          "EstirpesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Estirpes model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Estirpes.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Estirpes>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EstirpesController.count"
+      }
+    },
+    "/estirpes/{id}": {
+      "put": {
+        "x-controller-name": "EstirpesController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "EstirpesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Estirpes PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Estirpes"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EstirpesController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "EstirpesController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "EstirpesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Estirpes PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EstirpesPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EstirpesController.updateById"
+      },
+      "get": {
+        "x-controller-name": "EstirpesController",
+        "x-operation-name": "findById",
+        "tags": [
+          "EstirpesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Estirpes model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EstirpesWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Estirpes.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EstirpesController.findById"
+      },
+      "delete": {
+        "x-controller-name": "EstirpesController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "EstirpesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Estirpes DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "EstirpesController.deleteById"
+      }
+    },
+    "/estirpes": {
+      "post": {
+        "x-controller-name": "EstirpesController",
+        "x-operation-name": "create",
+        "tags": [
+          "EstirpesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Estirpes model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Estirpes"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewEstirpes"
+              }
+            }
+          }
+        },
+        "operationId": "EstirpesController.create"
+      },
+      "patch": {
+        "x-controller-name": "EstirpesController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "EstirpesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Estirpes PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Estirpes.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Estirpes>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EstirpesPartial"
+              }
+            }
+          }
+        },
+        "operationId": "EstirpesController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "EstirpesController",
+        "x-operation-name": "find",
+        "tags": [
+          "EstirpesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Estirpes model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EstirpesWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Estirpes.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EstirpesController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/vacinas/count": {
+      "get": {
+        "x-controller-name": "VacinasController",
+        "x-operation-name": "count",
+        "tags": [
+          "VacinasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacinas model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacinas.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacinas>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacinasController.count"
+      }
+    },
+    "/vacinas/{id}": {
+      "put": {
+        "x-controller-name": "VacinasController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "VacinasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacinas PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vacinas"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VacinasController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "VacinasController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "VacinasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacinas PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacinasPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VacinasController.updateById"
+      },
+      "get": {
+        "x-controller-name": "VacinasController",
+        "x-operation-name": "findById",
+        "tags": [
+          "VacinasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacinas model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VacinasWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacinas.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacinasController.findById"
+      },
+      "delete": {
+        "x-controller-name": "VacinasController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "VacinasController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacinas DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VacinasController.deleteById"
+      }
+    },
+    "/vacinas": {
+      "post": {
+        "x-controller-name": "VacinasController",
+        "x-operation-name": "create",
+        "tags": [
+          "VacinasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacinas model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacinas"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacinas"
+              }
+            }
+          }
+        },
+        "operationId": "VacinasController.create"
+      },
+      "patch": {
+        "x-controller-name": "VacinasController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "VacinasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacinas PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacinas.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacinas>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacinasPartial"
+              }
+            }
+          }
+        },
+        "operationId": "VacinasController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "VacinasController",
+        "x-operation-name": "find",
+        "tags": [
+          "VacinasController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Vacinas model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VacinasWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacinas.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacinasController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Casos": {
+        "title": "Casos",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "confirmados": {
+            "type": "number"
+          },
+          "obitos": {
+            "type": "number"
+          },
+          "recuperados": {
+            "type": "number"
+          },
+          "vigilancia": {
+            "type": "number"
+          },
+          "profissionais": {
+            "type": "number"
+          },
+          "internados": {
+            "type": "number"
+          },
+          "uci": {
+            "type": "number"
+          },
+          "domicilio": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "confirmados",
+          "obitos",
+          "recuperados",
+          "vigilancia",
+          "profissionais",
+          "internados",
+          "uci",
+          "domicilio"
+        ],
+        "additionalProperties": false
+      },
+      "NewCasos": {
+        "title": "NewCasos",
+        "type": "object",
+        "description": "(tsType: Omit<Casos, 'id'>, schemaOptions: { title: 'NewCasos', exclude: [ 'id' ] })",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "confirmados": {
+            "type": "number"
+          },
+          "obitos": {
+            "type": "number"
+          },
+          "recuperados": {
+            "type": "number"
+          },
+          "vigilancia": {
+            "type": "number"
+          },
+          "profissionais": {
+            "type": "number"
+          },
+          "internados": {
+            "type": "number"
+          },
+          "uci": {
+            "type": "number"
+          },
+          "domicilio": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "confirmados",
+          "obitos",
+          "recuperados",
+          "vigilancia",
+          "profissionais",
+          "internados",
+          "uci",
+          "domicilio"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Casos, 'id'>"
+      },
+      "CasosWithRelations": {
+        "title": "CasosWithRelations",
+        "type": "object",
+        "description": "(tsType: CasosWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "confirmados": {
+            "type": "number"
+          },
+          "obitos": {
+            "type": "number"
+          },
+          "recuperados": {
+            "type": "number"
+          },
+          "vigilancia": {
+            "type": "number"
+          },
+          "profissionais": {
+            "type": "number"
+          },
+          "internados": {
+            "type": "number"
+          },
+          "uci": {
+            "type": "number"
+          },
+          "domicilio": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "confirmados",
+          "obitos",
+          "recuperados",
+          "vigilancia",
+          "profissionais",
+          "internados",
+          "uci",
+          "domicilio"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "CasosWithRelations"
+      },
+      "CasosPartial": {
+        "title": "CasosPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Casos>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "confirmados": {
+            "type": "number"
+          },
+          "obitos": {
+            "type": "number"
+          },
+          "recuperados": {
+            "type": "number"
+          },
+          "vigilancia": {
+            "type": "number"
+          },
+          "profissionais": {
+            "type": "number"
+          },
+          "internados": {
+            "type": "number"
+          },
+          "uci": {
+            "type": "number"
+          },
+          "domicilio": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Casos>"
+      },
+      "Concelhos": {
+        "title": "Concelhos",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "concelho": {
+            "type": "string"
+          },
+          "confirmados": {
+            "type": "number"
+          },
+          "ativos": {
+            "type": "number"
+          },
+          "obitos": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "concelho",
+          "confirmados",
+          "ativos",
+          "obitos"
+        ],
+        "additionalProperties": false
+      },
+      "NewConcelhos": {
+        "title": "NewConcelhos",
+        "type": "object",
+        "description": "(tsType: Omit<Concelhos, 'id'>, schemaOptions: { title: 'NewConcelhos', exclude: [ 'id' ] })",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "concelho": {
+            "type": "string"
+          },
+          "confirmados": {
+            "type": "number"
+          },
+          "ativos": {
+            "type": "number"
+          },
+          "obitos": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "concelho",
+          "confirmados",
+          "ativos",
+          "obitos"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Concelhos, 'id'>"
+      },
+      "ConcelhosWithRelations": {
+        "title": "ConcelhosWithRelations",
+        "type": "object",
+        "description": "(tsType: ConcelhosWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "concelho": {
+            "type": "string"
+          },
+          "confirmados": {
+            "type": "number"
+          },
+          "ativos": {
+            "type": "number"
+          },
+          "obitos": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "concelho",
+          "confirmados",
+          "ativos",
+          "obitos"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ConcelhosWithRelations"
+      },
+      "ConcelhosPartial": {
+        "title": "ConcelhosPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Concelhos>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "concelho": {
+            "type": "string"
+          },
+          "confirmados": {
+            "type": "number"
+          },
+          "ativos": {
+            "type": "number"
+          },
+          "obitos": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Concelhos>"
+      },
+      "Estirpes": {
+        "title": "Estirpes",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estirpe": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "data",
+          "estirpe"
+        ],
+        "additionalProperties": false
+      },
+      "NewEstirpes": {
+        "title": "NewEstirpes",
+        "type": "object",
+        "description": "(tsType: Omit<Estirpes, 'id'>, schemaOptions: { title: 'NewEstirpes', exclude: [ 'id' ] })",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estirpe": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "data",
+          "estirpe"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Estirpes, 'id'>"
+      },
+      "EstirpesWithRelations": {
+        "title": "EstirpesWithRelations",
+        "type": "object",
+        "description": "(tsType: EstirpesWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estirpe": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "data",
+          "estirpe"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "EstirpesWithRelations"
+      },
+      "EstirpesPartial": {
+        "title": "EstirpesPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Estirpes>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estirpe": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Estirpes>"
+      },
+      "Vacinas": {
+        "title": "Vacinas",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vacinados": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "vacinados"
+        ],
+        "additionalProperties": false
+      },
+      "NewVacinas": {
+        "title": "NewVacinas",
+        "type": "object",
+        "description": "(tsType: Omit<Vacinas, 'id'>, schemaOptions: { title: 'NewVacinas', exclude: [ 'id' ] })",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vacinados": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "vacinados"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Vacinas, 'id'>"
+      },
+      "VacinasWithRelations": {
+        "title": "VacinasWithRelations",
+        "type": "object",
+        "description": "(tsType: VacinasWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vacinados": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "vacinados"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "VacinasWithRelations"
+      },
+      "VacinasPartial": {
+        "title": "VacinasPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Vacinas>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "data": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vacinados": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Vacinas>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Casos.Filter": {
+        "type": "object",
+        "title": "Casos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "data": {
+                    "type": "boolean"
+                  },
+                  "confirmados": {
+                    "type": "boolean"
+                  },
+                  "obitos": {
+                    "type": "boolean"
+                  },
+                  "recuperados": {
+                    "type": "boolean"
+                  },
+                  "vigilancia": {
+                    "type": "boolean"
+                  },
+                  "profissionais": {
+                    "type": "boolean"
+                  },
+                  "internados": {
+                    "type": "boolean"
+                  },
+                  "uci": {
+                    "type": "boolean"
+                  },
+                  "domicilio": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "data",
+                    "confirmados",
+                    "obitos",
+                    "recuperados",
+                    "vigilancia",
+                    "profissionais",
+                    "internados",
+                    "uci",
+                    "domicilio"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Casos.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Casos>"
+      },
+      "Casos.Filter1": {
+        "type": "object",
+        "title": "Casos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Casos.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "data": {
+                    "type": "boolean"
+                  },
+                  "confirmados": {
+                    "type": "boolean"
+                  },
+                  "obitos": {
+                    "type": "boolean"
+                  },
+                  "recuperados": {
+                    "type": "boolean"
+                  },
+                  "vigilancia": {
+                    "type": "boolean"
+                  },
+                  "profissionais": {
+                    "type": "boolean"
+                  },
+                  "internados": {
+                    "type": "boolean"
+                  },
+                  "uci": {
+                    "type": "boolean"
+                  },
+                  "domicilio": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "data",
+                    "confirmados",
+                    "obitos",
+                    "recuperados",
+                    "vigilancia",
+                    "profissionais",
+                    "internados",
+                    "uci",
+                    "domicilio"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Casos.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Casos>"
+      },
+      "Concelhos.Filter": {
+        "type": "object",
+        "title": "Concelhos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "data": {
+                    "type": "boolean"
+                  },
+                  "concelho": {
+                    "type": "boolean"
+                  },
+                  "confirmados": {
+                    "type": "boolean"
+                  },
+                  "ativos": {
+                    "type": "boolean"
+                  },
+                  "obitos": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "data",
+                    "concelho",
+                    "confirmados",
+                    "ativos",
+                    "obitos"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Concelhos.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Concelhos>"
+      },
+      "Concelhos.Filter1": {
+        "type": "object",
+        "title": "Concelhos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Concelhos.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "data": {
+                    "type": "boolean"
+                  },
+                  "concelho": {
+                    "type": "boolean"
+                  },
+                  "confirmados": {
+                    "type": "boolean"
+                  },
+                  "ativos": {
+                    "type": "boolean"
+                  },
+                  "obitos": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "data",
+                    "concelho",
+                    "confirmados",
+                    "ativos",
+                    "obitos"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Concelhos.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Concelhos>"
+      },
+      "Estirpes.Filter": {
+        "type": "object",
+        "title": "Estirpes.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "data": {
+                    "type": "boolean"
+                  },
+                  "estirpe": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "data",
+                    "estirpe"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Estirpes.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Estirpes>"
+      },
+      "Estirpes.Filter1": {
+        "type": "object",
+        "title": "Estirpes.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Estirpes.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "data": {
+                    "type": "boolean"
+                  },
+                  "estirpe": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "data",
+                    "estirpe"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Estirpes.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Estirpes>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "Vacinas.Filter": {
+        "type": "object",
+        "title": "Vacinas.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "data": {
+                    "type": "boolean"
+                  },
+                  "vacinados": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "data",
+                    "vacinados"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Vacinas.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Vacinas>"
+      },
+      "Vacinas.Filter1": {
+        "type": "object",
+        "title": "Vacinas.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Vacinas.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "data": {
+                    "type": "boolean"
+                  },
+                  "vacinados": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "data",
+                    "vacinados"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Vacinas.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Vacinas>"
+      }
+    }
+  }
+}
