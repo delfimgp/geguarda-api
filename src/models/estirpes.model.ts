@@ -19,7 +19,13 @@ export class Estirpes extends Entity {
     type: 'string',
     required: true,
   })
-  estirpe: string;
+  variante: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  valor: number;
 
 
   constructor(data?: Partial<Estirpes>) {
