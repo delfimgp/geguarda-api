@@ -7,18 +7,18 @@ import {
   Where
 } from '@loopback/repository';
 import {
-  del, get,
+  get,
   getModelSchemaRef, param,
 
 
-  patch, post,
 
 
 
 
-  put,
 
-  requestBody,
+
+
+
   response
 } from '@loopback/rest';
 import {Concelhos} from '../models';
@@ -29,28 +29,28 @@ export class ConcelhosController {
     @repository(ConcelhosRepository)
     public concelhosRepository: ConcelhosRepository,
   ) { }
-
-  @post('/concelhos')
-  @response(200, {
-    description: 'Concelhos model instance',
-    content: {'application/json': {schema: getModelSchemaRef(Concelhos)}},
-  })
-  async create(
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Concelhos, {
-            title: 'NewConcelhos',
-            exclude: ['id'],
-          }),
-        },
-      },
+  /*
+    @post('/concelhos')
+    @response(200, {
+      description: 'Concelhos model instance',
+      content: {'application/json': {schema: getModelSchemaRef(Concelhos)}},
     })
-    concelhos: Omit<Concelhos, 'id'>,
-  ): Promise<Concelhos> {
-    return this.concelhosRepository.create(concelhos);
-  }
-
+    async create(
+      @requestBody({
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Concelhos, {
+              title: 'NewConcelhos',
+              exclude: ['id'],
+            }),
+          },
+        },
+      })
+      concelhos: Omit<Concelhos, 'id'>,
+    ): Promise<Concelhos> {
+      return this.concelhosRepository.create(concelhos);
+    }
+  */
   @get('/concelhos/count')
   @response(200, {
     description: 'Concelhos model count',
@@ -79,26 +79,26 @@ export class ConcelhosController {
   ): Promise<Concelhos[]> {
     return this.concelhosRepository.find(filter);
   }
-
-  @patch('/concelhos')
-  @response(200, {
-    description: 'Concelhos PATCH success count',
-    content: {'application/json': {schema: CountSchema}},
-  })
-  async updateAll(
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Concelhos, {partial: true}),
-        },
-      },
+  /*
+    @patch('/concelhos')
+    @response(200, {
+      description: 'Concelhos PATCH success count',
+      content: {'application/json': {schema: CountSchema}},
     })
-    concelhos: Concelhos,
-    @param.where(Concelhos) where?: Where<Concelhos>,
-  ): Promise<Count> {
-    return this.concelhosRepository.updateAll(concelhos, where);
-  }
-
+    async updateAll(
+      @requestBody({
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Concelhos, {partial: true}),
+          },
+        },
+      })
+      concelhos: Concelhos,
+      @param.where(Concelhos) where?: Where<Concelhos>,
+    ): Promise<Count> {
+      return this.concelhosRepository.updateAll(concelhos, where);
+    }
+  */
   @get('/concelhos/{id}')
   @response(200, {
     description: 'Concelhos model instance',
@@ -114,41 +114,43 @@ export class ConcelhosController {
   ): Promise<Concelhos> {
     return this.concelhosRepository.findById(id, filter);
   }
-
-  @patch('/concelhos/{id}')
-  @response(204, {
-    description: 'Concelhos PATCH success',
-  })
-  async updateById(
-    @param.path.number('id') id: number,
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Concelhos, {partial: true}),
-        },
-      },
+  /*
+    @patch('/concelhos/{id}')
+    @response(204, {
+      description: 'Concelhos PATCH success',
     })
-    concelhos: Concelhos,
-  ): Promise<void> {
-    await this.concelhosRepository.updateById(id, concelhos);
-  }
-
-  @put('/concelhos/{id}')
-  @response(204, {
-    description: 'Concelhos PUT success',
-  })
-  async replaceById(
-    @param.path.number('id') id: number,
-    @requestBody() concelhos: Concelhos,
-  ): Promise<void> {
-    await this.concelhosRepository.replaceById(id, concelhos);
-  }
-
-  @del('/concelhos/{id}')
-  @response(204, {
-    description: 'Concelhos DELETE success',
-  })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
-    await this.concelhosRepository.deleteById(id);
-  }
+    async updateById(
+      @param.path.number('id') id: number,
+      @requestBody({
+        content: {
+          'application/json': {
+            schema: getModelSchemaRef(Concelhos, {partial: true}),
+          },
+        },
+      })
+      concelhos: Concelhos,
+    ): Promise<void> {
+      await this.concelhosRepository.updateById(id, concelhos);
+    }
+  */
+  /*
+    @put('/concelhos/{id}')
+    @response(204, {
+      description: 'Concelhos PUT success',
+    })
+    async replaceById(
+      @param.path.number('id') id: number,
+      @requestBody() concelhos: Concelhos,
+    ): Promise<void> {
+      await this.concelhosRepository.replaceById(id, concelhos);
+    }
+  
+    @del('/concelhos/{id}')
+    @response(204, {
+      description: 'Concelhos DELETE success',
+    })
+    async deleteById(@param.path.number('id') id: number): Promise<void> {
+      await this.concelhosRepository.deleteById(id);
+    }
+    */
 }
