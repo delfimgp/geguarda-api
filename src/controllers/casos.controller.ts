@@ -2,7 +2,7 @@ import {
   Count,
   CountSchema,
   Filter,
-  FilterExcludingWhere,
+
   repository,
   Where
 } from '@loopback/repository';
@@ -94,23 +94,23 @@ export class CasosController {
     ): Promise<Count> {
       return this.casosRepository.updateAll(casos, where);
     }
-  */
-  @get('/casos/{id}')
-  @response(200, {
-    description: 'Casos model instance',
-    content: {
-      'application/json': {
-        schema: getModelSchemaRef(Casos, {includeRelations: true}),
+  
+    @get('/casos/{id}')
+    @response(200, {
+      description: 'Casos model instance',
+      content: {
+        'application/json': {
+          schema: getModelSchemaRef(Casos, {includeRelations: true}),
+        },
       },
-    },
-  })
-  async findById(
-    @param.path.number('id') id: number,
-    @param.filter(Casos, {exclude: 'where'}) filter?: FilterExcludingWhere<Casos>
-  ): Promise<Casos> {
-    return this.casosRepository.findById(id, filter);
-  }
-  /*
+    })
+    async findById(
+      @param.path.number('id') id: number,
+      @param.filter(Casos, {exclude: 'where'}) filter?: FilterExcludingWhere<Casos>
+    ): Promise<Casos> {
+      return this.casosRepository.findById(id, filter);
+    }
+  
     @patch('/casos/{id}')
     @response(204, {
       description: 'Casos PATCH success',
@@ -128,8 +128,7 @@ export class CasosController {
     ): Promise<void> {
       await this.casosRepository.updateById(id, casos);
     }
-  */
-  /*
+  
     @put('/casos/{id}')
     @response(204, {
       description: 'Casos PUT success',

@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Casos extends Entity {
+export class Acumulados extends Entity {
   @property({
     type: 'number',
     id: true,
@@ -25,26 +25,34 @@ export class Casos extends Entity {
     type: 'number',
     required: true,
   })
-  ativos: number;
+  obitos: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  obitos: number;
+  recuperados: number;
 
   @property({
-    type: 'string',
+    type: 'number',
+    required: true,
   })
-  concelhosId?: string;
+  vigilancia: number;
 
-  constructor(data?: Partial<Casos>) {
+  @property({
+    type: 'number',
+    required: true,
+  })
+  profissionais: number;
+
+
+  constructor(data?: Partial<Acumulados>) {
     super(data);
   }
 }
 
-export interface CasosRelations {
+export interface AcumuladosRelations {
   // describe navigational properties here
 }
 
-export type CasosWithRelations = Casos & CasosRelations;
+export type AcumuladosWithRelations = Acumulados & AcumuladosRelations;

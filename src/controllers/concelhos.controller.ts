@@ -2,17 +2,13 @@ import {
   Count,
   CountSchema,
   Filter,
-  FilterExcludingWhere,
+
   repository,
   Where
 } from '@loopback/repository';
 import {
   get,
   getModelSchemaRef, param,
-
-
-
-
 
 
 
@@ -41,12 +37,12 @@ export class ConcelhosController {
           'application/json': {
             schema: getModelSchemaRef(Concelhos, {
               title: 'NewConcelhos',
-              exclude: ['id'],
+  
             }),
           },
         },
       })
-      concelhos: Omit<Concelhos, 'id'>,
+      concelhos: Concelhos,
     ): Promise<Concelhos> {
       return this.concelhosRepository.create(concelhos);
     }
@@ -98,29 +94,29 @@ export class ConcelhosController {
     ): Promise<Count> {
       return this.concelhosRepository.updateAll(concelhos, where);
     }
-  */
-  @get('/concelhos/{id}')
-  @response(200, {
-    description: 'Concelhos model instance',
-    content: {
-      'application/json': {
-        schema: getModelSchemaRef(Concelhos, {includeRelations: true}),
+  
+    @get('/concelhos/{id}')
+    @response(200, {
+      description: 'Concelhos model instance',
+      content: {
+        'application/json': {
+          schema: getModelSchemaRef(Concelhos, {includeRelations: true}),
+        },
       },
-    },
-  })
-  async findById(
-    @param.path.number('id') id: number,
-    @param.filter(Concelhos, {exclude: 'where'}) filter?: FilterExcludingWhere<Concelhos>
-  ): Promise<Concelhos> {
-    return this.concelhosRepository.findById(id, filter);
-  }
-  /*
+    })
+    async findById(
+      @param.path.string('id') id: string,
+      @param.filter(Concelhos, {exclude: 'where'}) filter?: FilterExcludingWhere<Concelhos>
+    ): Promise<Concelhos> {
+      return this.concelhosRepository.findById(id, filter);
+    }
+  
     @patch('/concelhos/{id}')
     @response(204, {
       description: 'Concelhos PATCH success',
     })
     async updateById(
-      @param.path.number('id') id: number,
+      @param.path.string('id') id: string,
       @requestBody({
         content: {
           'application/json': {
@@ -132,14 +128,13 @@ export class ConcelhosController {
     ): Promise<void> {
       await this.concelhosRepository.updateById(id, concelhos);
     }
-  */
-  /*
+  
     @put('/concelhos/{id}')
     @response(204, {
       description: 'Concelhos PUT success',
     })
     async replaceById(
-      @param.path.number('id') id: number,
+      @param.path.string('id') id: string,
       @requestBody() concelhos: Concelhos,
     ): Promise<void> {
       await this.concelhosRepository.replaceById(id, concelhos);
@@ -149,8 +144,8 @@ export class ConcelhosController {
     @response(204, {
       description: 'Concelhos DELETE success',
     })
-    async deleteById(@param.path.number('id') id: number): Promise<void> {
+    async deleteById(@param.path.string('id') id: string): Promise<void> {
       await this.concelhosRepository.deleteById(id);
     }
-    */
+  */
 }

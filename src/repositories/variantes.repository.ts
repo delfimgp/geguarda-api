@@ -1,16 +1,16 @@
 import {inject} from '@loopback/core';
 import {DefaultCrudRepository} from '@loopback/repository';
 import {DbDataSource} from '../datasources';
-import {Estirpes, EstirpesRelations} from '../models';
+import {Variantes, VariantesRelations} from '../models';
 
-export class EstirpesRepository extends DefaultCrudRepository<
-  Estirpes,
-  typeof Estirpes.prototype.id,
-  EstirpesRelations
+export class VariantesRepository extends DefaultCrudRepository<
+  Variantes,
+  typeof Variantes.prototype.id,
+  VariantesRelations
 > {
   constructor(
     @inject('datasources.db') dataSource: DbDataSource,
   ) {
-    super(Estirpes, dataSource);
+    super(Variantes, dataSource);
   }
 }

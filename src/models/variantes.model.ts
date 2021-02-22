@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Vacinas extends Entity {
+export class Variantes extends Entity {
   @property({
     type: 'number',
     id: true,
@@ -16,19 +16,25 @@ export class Vacinas extends Entity {
   data: string;
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  variante: string;
+
+  @property({
     type: 'number',
     required: true,
   })
-  vacinados: number;
+  casos: number;
 
 
-  constructor(data?: Partial<Vacinas>) {
+  constructor(data?: Partial<Variantes>) {
     super(data);
   }
 }
 
-export interface VacinasRelations {
+export interface VariantesRelations {
   // describe navigational properties here
 }
 
-export type VacinasWithRelations = Vacinas & VacinasRelations;
+export type VariantesWithRelations = Variantes & VariantesRelations;
