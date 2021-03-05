@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -20,6 +21,7 @@ import {
 import {Concelhos} from '../models';
 import {ConcelhosRepository} from '../repositories';
 
+@authenticate('jwt')
 export class ConcelhosController {
   constructor(
     @repository(ConcelhosRepository)
@@ -37,7 +39,7 @@ export class ConcelhosController {
           'application/json': {
             schema: getModelSchemaRef(Concelhos, {
               title: 'NewConcelhos',
-  
+
             }),
           },
         },
@@ -94,7 +96,7 @@ export class ConcelhosController {
     ): Promise<Count> {
       return this.concelhosRepository.updateAll(concelhos, where);
     }
-  
+
     @get('/concelhos/{id}')
     @response(200, {
       description: 'Concelhos model instance',
@@ -110,7 +112,7 @@ export class ConcelhosController {
     ): Promise<Concelhos> {
       return this.concelhosRepository.findById(id, filter);
     }
-  
+
     @patch('/concelhos/{id}')
     @response(204, {
       description: 'Concelhos PATCH success',
@@ -128,7 +130,7 @@ export class ConcelhosController {
     ): Promise<void> {
       await this.concelhosRepository.updateById(id, concelhos);
     }
-  
+
     @put('/concelhos/{id}')
     @response(204, {
       description: 'Concelhos PUT success',
@@ -139,7 +141,7 @@ export class ConcelhosController {
     ): Promise<void> {
       await this.concelhosRepository.replaceById(id, concelhos);
     }
-  
+
     @del('/concelhos/{id}')
     @response(204, {
       description: 'Concelhos DELETE success',

@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -20,6 +21,7 @@ import {
 import {Ativos} from '../models';
 import {AtivosRepository} from '../repositories';
 
+@authenticate('jwt')
 export class AtivosController {
   constructor(
     @repository(AtivosRepository)
@@ -94,7 +96,7 @@ export class AtivosController {
     ): Promise<Count> {
       return this.ativosRepository.updateAll(ativos, where);
     }
-  
+
     @get('/ativos/{id}')
     @response(200, {
       description: 'Ativos model instance',
@@ -110,7 +112,7 @@ export class AtivosController {
     ): Promise<Ativos> {
       return this.ativosRepository.findById(id, filter);
     }
-  
+
     @patch('/ativos/{id}')
     @response(204, {
       description: 'Ativos PATCH success',
@@ -128,7 +130,7 @@ export class AtivosController {
     ): Promise<void> {
       await this.ativosRepository.updateById(id, ativos);
     }
-  
+
     @put('/ativos/{id}')
     @response(204, {
       description: 'Ativos PUT success',
@@ -139,7 +141,7 @@ export class AtivosController {
     ): Promise<void> {
       await this.ativosRepository.replaceById(id, ativos);
     }
-  
+
     @del('/ativos/{id}')
     @response(204, {
       description: 'Ativos DELETE success',

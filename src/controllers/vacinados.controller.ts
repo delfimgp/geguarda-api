@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -20,6 +21,7 @@ import {
 import {Vacinados} from '../models';
 import {VacinadosRepository} from '../repositories';
 
+@authenticate('jwt')
 export class VacinadosController {
   constructor(
     @repository(VacinadosRepository)
@@ -94,7 +96,7 @@ export class VacinadosController {
     ): Promise<Count> {
       return this.vacinadosRepository.updateAll(vacinados, where);
     }
-  
+
     @get('/vacinados/{id}')
     @response(200, {
       description: 'Vacinados model instance',
@@ -110,7 +112,7 @@ export class VacinadosController {
     ): Promise<Vacinados> {
       return this.vacinadosRepository.findById(id, filter);
     }
-  
+
     @patch('/vacinados/{id}')
     @response(204, {
       description: 'Vacinados PATCH success',
@@ -128,7 +130,7 @@ export class VacinadosController {
     ): Promise<void> {
       await this.vacinadosRepository.updateById(id, vacinados);
     }
-  
+
     @put('/vacinados/{id}')
     @response(204, {
       description: 'Vacinados PUT success',
@@ -139,7 +141,7 @@ export class VacinadosController {
     ): Promise<void> {
       await this.vacinadosRepository.replaceById(id, vacinados);
     }
-  
+
     @del('/vacinados/{id}')
     @response(204, {
       description: 'Vacinados DELETE success',

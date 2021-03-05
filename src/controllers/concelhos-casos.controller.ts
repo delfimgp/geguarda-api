@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Filter,
   repository
@@ -13,6 +14,7 @@ import {
 } from '../models';
 import {ConcelhosRepository} from '../repositories';
 
+@authenticate('jwt')
 export class ConcelhosCasosController {
   constructor(
     @repository(ConcelhosRepository) protected concelhosRepository: ConcelhosRepository,
@@ -61,7 +63,7 @@ export class ConcelhosCasosController {
     ): Promise<Casos> {
       return this.concelhosRepository.casos(id).create(casos);
     }
-  
+
     @patch('/concelhos/{id}/casos', {
       responses: {
         '200': {
@@ -84,7 +86,7 @@ export class ConcelhosCasosController {
     ): Promise<Count> {
       return this.concelhosRepository.casos(id).patch(casos, where);
     }
-  
+
     @del('/concelhos/{id}/casos', {
       responses: {
         '200': {

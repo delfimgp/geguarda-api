@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -20,6 +21,7 @@ import {
 import {Acumulados} from '../models';
 import {AcumuladosRepository} from '../repositories';
 
+@authenticate('jwt')
 export class AcumuladosController {
   constructor(
     @repository(AcumuladosRepository)
@@ -94,7 +96,7 @@ export class AcumuladosController {
     ): Promise<Count> {
       return this.acumuladosRepository.updateAll(acumulados, where);
     }
-  
+
     @get('/acumulados/{id}')
     @response(200, {
       description: 'Acumulados model instance',
@@ -110,7 +112,7 @@ export class AcumuladosController {
     ): Promise<Acumulados> {
       return this.acumuladosRepository.findById(id, filter);
     }
-  
+
     @patch('/acumulados/{id}')
     @response(204, {
       description: 'Acumulados PATCH success',
@@ -128,7 +130,7 @@ export class AcumuladosController {
     ): Promise<void> {
       await this.acumuladosRepository.updateById(id, acumulados);
     }
-  
+
     @put('/acumulados/{id}')
     @response(204, {
       description: 'Acumulados PUT success',
@@ -139,7 +141,7 @@ export class AcumuladosController {
     ): Promise<void> {
       await this.acumuladosRepository.replaceById(id, acumulados);
     }
-  
+
     @del('/acumulados/{id}')
     @response(204, {
       description: 'Acumulados DELETE success',

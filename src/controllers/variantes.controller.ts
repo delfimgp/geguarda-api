@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -20,6 +21,7 @@ import {
 import {Variantes} from '../models';
 import {VariantesRepository} from '../repositories';
 
+@authenticate('jwt')
 export class VariantesController {
   constructor(
     @repository(VariantesRepository)
@@ -94,7 +96,7 @@ export class VariantesController {
     ): Promise<Count> {
       return this.variantesRepository.updateAll(variantes, where);
     }
-  
+
     @get('/variantes/{id}')
     @response(200, {
       description: 'Variantes model instance',
@@ -110,7 +112,7 @@ export class VariantesController {
     ): Promise<Variantes> {
       return this.variantesRepository.findById(id, filter);
     }
-  
+
     @patch('/variantes/{id}')
     @response(204, {
       description: 'Variantes PATCH success',
@@ -128,7 +130,7 @@ export class VariantesController {
     ): Promise<void> {
       await this.variantesRepository.updateById(id, variantes);
     }
-  
+
     @put('/variantes/{id}')
     @response(204, {
       description: 'Variantes PUT success',
@@ -139,7 +141,7 @@ export class VariantesController {
     ): Promise<void> {
       await this.variantesRepository.replaceById(id, variantes);
     }
-  
+
     @del('/variantes/{id}')
     @response(204, {
       description: 'Variantes DELETE success',

@@ -6,3 +6,4 @@ export * from './concelhos.controller';
 export * from './casos.controller';
 export * from './acumulados.controller';
 export * from './ativos.controller';
+export * from './user.controller';
