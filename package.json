@@ -1,7 +1,7 @@
 {
   "name": "geguarda-api",
   "version": "0.0.1",
-  "description": "testeLB",
+  "description": "Casos de Covid-19 no distrito da Guarda, por concelho",
   "keywords": [
     "loopback-application",
     "loopback"
